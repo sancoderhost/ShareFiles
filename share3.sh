@@ -16,7 +16,7 @@ share()
 		[[ ! -d ~/.webshare   ]] && mkdir -p ~/.webshare 
 		#cp  -r --reflink "$2" ~/.webshare/ 
 		path="$(realpath "$2")"
-		ln -s "$path" "/home/sanbotbtrfs/.webshare/"
+		ln -s "$path" "/home/$(whoami)/.webshare/"
 		qrcode
 elif [[ "$1" = "s" ]]
 then
@@ -28,7 +28,7 @@ then
 				path="$( find "$2"   |fzf  )"
 		fi 
 		path="$(realpath "$path")"
-		ln -s "$path" "/home/sanbotbtrfs/.webshare/"
+		ln -s "$path" "/home/$(whoami)/.webshare/"
 		qrcode
 else
 		 error
